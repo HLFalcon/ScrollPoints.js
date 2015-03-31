@@ -1,4 +1,3 @@
-@@ -0,0 +1,2 @@
 # ScrollPoints.js
 Crea y gestiona eventos de Scroll de una forma sencilla.
 
