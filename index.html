@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Scrollpoints.js by HLFalcon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Scrollpoints.js</h1>
+      <h2 class="project-tagline">Una librería para facilitar el lanzamiento de eventos a medida que se avanza el scroll</h2>
+      <a href="https://github.com/HLFalcon/ScrollPoints.js" class="btn">View on GitHub</a>
+      <a href="https://github.com/HLFalcon/ScrollPoints.js/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/HLFalcon/ScrollPoints.js/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="scrollpointsjs" class="anchor" href="#scrollpointsjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>ScrollPoints.js</h1>
+
+<h2>
+<a id="crea-y-gestiona-eventos-de-scroll-de-una-forma-sencilla" class="anchor" href="#crea-y-gestiona-eventos-de-scroll-de-una-forma-sencilla" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crea y gestiona eventos de Scroll de una forma sencilla.</h2>
+
+<p>Encuentra toda la información y ejemplos en scrollpoints.hectoralvarez.me</p>
+
+<p>Copyright © 2015 Héctor Álvarez </p>
+
+<p>Licensed under the MIT license. </p>
+
+<p>license.hectoralvarez.me/mit </p>
+
+<hr>
+
+<p>Crea una instancia de scrollpoints:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> myPoints <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">ScrollPoints</span>();</pre></div>
+
+<p>Ahora añade nuevos puntos. Los puntos se deben añadir en el orden en el que se hará scroll en ellos:</p>
+
+<div class="highlight highlight-javascript"><pre>myPoints.addPoint(
+  <span class="pl-k">new</span> <span class="pl-en">Point</span>({
+    id<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>#id<span class="pl-pds">'</span></span>,
+    <span class="pl-en">onScroll</span>:<span class="pl-k">function</span>(){
+      ....
+    },
+    <span class="pl-en">onScrollBackwards</span>:<span class="pl-k">function</span>(){
+      ....
+    },
+    offset<span class="pl-k">:</span><span class="pl-c1">150</span>,
+    fadeTime<span class="pl-k">:</span><span class="pl-c1">2000</span>,
+    fadeElements<span class="pl-k">:</span>[<span class="pl-s"><span class="pl-pds">'</span>#id<span class="pl-pds">'</span></span>],
+    menuHighlight<span class="pl-k">:</span>{<span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>selectedMenuItem<span class="pl-pds">'</span></span>,
+                   <span class="pl-s"><span class="pl-pds">'</span>menuEntry<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>#menuId<span class="pl-pds">'</span></span>}
+  })
+);</pre></div>
+
+<p>Se deben definir la función que se ejecutará cuando se haga scroll como onScroll.
+onScrollBackwards contiene la función que se ejecutará si se hace scroll en la dirección contraria.</p>
+
+<p>Existen funcionalidades predefinidas. si al hacer scroll se desea que un elemento html o varios aparezcan haciendo fadeIn. se pueden definir en un array con sus ids, en la propiedad fadeElements.</p>
+
+<p>Además, si se desea que se añada una clase css a un elemento de menú, puede definirse bajo menuHighlight con la siguiente estructura:</p>
+
+<div class="highlight highlight-javascript"><pre>{<span class="pl-s"><span class="pl-pds">'</span>class<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>clase css que se aplicará<span class="pl-pds">'</span></span>,
+<span class="pl-s"><span class="pl-pds">'</span>menuEntry<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>#id de la entrada de menu a la que se le aplicará<span class="pl-pds">'</span></span>}</pre></div>
+
+<p>También pueden dejarse sin definir y añadir el comportamiento deseado en las funciones onScroll y onScrollBackwards.</p>
+
+<p>Si se desea que los elementos etiquetados como fadeIn se desvanezcan al hacer scroll hacia arriba, debe definirse, al menos, una función onScrollBackwards vacia. si se deja sin definir ningún comportamiento automatico se ejecutará al hacer scroll hacia arriba.</p>
+
+<p>Por último, añade una llamada al tu scrollpoints en el evento onScroll de jquery</p>
+
+<div class="highlight highlight-javascript"><pre>$(<span class="pl-c1">window</span>).on(<span class="pl-s"><span class="pl-pds">'</span>scroll<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>() {
+  myPoints.<span class="pl-c1">onScroll</span>();
+});</pre></div>
+
+<p>Para mas ejemplo y documentación, por favor visita scrollpoints.hectoralvarez.me</p>
+
+<p>No dudes en ponerte en contacto para cualquier duda o sugerencia.</p>
+
+<p>Actualmente el proyecto está en las primeras fase de desarrollo.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/HLFalcon/ScrollPoints.js">Scrollpoints.js</a> is maintained by <a href="https://github.com/HLFalcon">HLFalcon</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
